@@ -1,0 +1,222 @@
+---
+// HeroSection.astro
+---
+
+<section class="pt-40 pb-20 md:pt-60 md:pb-32 relative overflow-hidden">
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+    <!-- Desktop Text Layout -->
+    <div class="hidden md:grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center" id="hero-text-container-desktop">
+      <!-- Designer Section -->
+      <div class="flex flex-col transition-all duration-300 ease-in-out" id="designer-section-desktop">
+        <a href="/portfolio" class="group">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 group-hover:text-gray-600 transition-colors duration-300">
+            designer
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
+            Product designer specialising in UI design and design systems.
+          </p>
+        </a>
+      </div>
+
+      <!-- Coder Section -->
+      <div class="flex flex-col transition-all duration-300 ease-in-out" id="coder-section-desktop">
+        <a href="/about" class="group">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4 group-hover:text-gray-600 transition-colors duration-300">
+            &lt;coder&gt;
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
+            Front end developer who writes clean, elegant and efficient code.
+          </p>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Mobile Text Layout -->
+    <div class="md:hidden flex flex-col items-center">
+      <div class="mb-8 relative">
+        <!-- Mobile Image with Split Effect -->
+        <div class="relative w-full max-w-xs mx-auto" style="height: 300px;">
+          <div class="absolute top-0 left-0 w-1/2 h-full overflow-hidden">
+            <img 
+              src="/artistica.png"
+              alt="Artistic Face" 
+              class="object-cover h-full"
+              style="min-width: 300px; position: absolute; left: 0;"
+            />
+            <div class="absolute top-0 right-0 w-0.5 h-full bg-white"></div>
+          </div>
+          
+          <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden">
+            <img 
+              src="/normal.png"
+              alt="Normal Face" 
+              class="object-cover h-full"
+              style="min-width: 300px; position: absolute; right: 0;"
+            />
+          </div>
+        </div>
+        
+        <!-- Mobile Text Overlay -->
+        <div class="absolute bottom-0 left-0 w-full flex justify-between px-4 pb-4">
+          <div class="text-left">
+            <h2 class="text-2xl font-bold text-gray-900">designer</h2>
+          </div>
+          <div class="text-right">
+            <h2 class="text-2xl font-bold text-gray-900">&lt;coder&gt;</h2>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Description -->
+      <div class="text-center px-4 mt-4">
+        <p class="text-lg text-gray-700 mb-4">
+          Product designer specialising in UI design and design systems.
+        </p>
+        <p class="text-lg text-gray-700">
+          Front end developer who writes clean, elegant and efficient code.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop Split Face Image with Mouse Movement Effect -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none hidden md:flex justify-center items-center" id="split-face-container">
+    <div class="relative w-full max-w-xl h-full flex justify-center items-center">
+      <!-- Container for both images with split effect -->
+      <div class="relative" style="width: 700px; height: 700px;">
+        <!-- Designer Side (Artistic/Caricature) - Left side -->
+        <div class="absolute top-0 left-0 w-1/2 h-full overflow-hidden transition-all duration-100 ease-linear" id="designer-side">
+          <img 
+            src="/artistica.png"
+            alt="Artistic Face" 
+            class="object-cover h-full"
+            style="min-width: 700px; position: absolute; left: 0;"
+          />
+          <!-- Vertical divider line -->
+          <div class="absolute top-0 right-0 w-0.5 h-full bg-white"></div>
+        </div>
+        
+        <!-- Coder Side (Normal/Photo) - Right side -->
+        <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden transition-all duration-100 ease-linear" id="coder-side">
+          <img 
+            src="/normal.png"
+            alt="Normal Face" 
+            class="object-cover h-full"
+            style="min-width: 700px; position: absolute; right: 0;"
+          />
+        </div>
+      </div>
+
+      <!-- Designer Text Overlay (Left side) -->
+      <div class="absolute top-1/4 left-0 transform -translate-y-1/2 text-left transition-all duration-300 ease-in-out" id="designer-text" style="max-width: 200px;">
+        <div>
+          <h3 class="text-2xl font-bold mb-2">designer</h3>
+          <p class="text-sm text-gray-700">Product designer specialising in UI design and design systems.</p>
+        </div>
+      </div>
+
+      <!-- Coder Text Overlay (Right side) -->
+      <div class="absolute top-1/4 right-0 transform -translate-y-1/2 text-right opacity-0 transition-all duration-300 ease-in-out" id="coder-text" style="max-width: 200px;">
+        <div>
+          <h3 class="text-2xl font-bold mb-2">&lt;coder&gt;</h3>
+          <p class="text-sm text-gray-700">Front end developer who writes clean, elegant and efficient code.</p>
+        </div>
+      </div>
+
+      <!-- Code overlay for coder side -->
+      <div class="absolute bottom-1/4 right-0 transform translate-y-1/2 opacity-0 transition-all duration-300 ease-in-out text-xs text-gray-700 font-mono" id="code-overlay" style="max-width: 200px;">
+        <pre class="bg-white bg-opacity-70 p-2 rounded">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Portfolio&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+      </div>
+
+      <!-- Design elements overlay for designer side -->
+      <div class="absolute bottom-1/4 left-0 transform translate-y-1/2 transition-all duration-300 ease-in-out" id="design-overlay" style="max-width: 200px;">
+        <div class="bg-white bg-opacity-70 p-2 rounded">
+          <div class="w-8 h-8 rounded-full bg-blue-500 mb-2"></div>
+          <div class="w-12 h-2 rounded-full bg-red-500 mb-2"></div>
+          <div class="w-10 h-10 rounded bg-yellow-500"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar elementos del DOM con comprobación de nulos
+    const container = document.getElementById('split-face-container');
+    const designerSide = document.getElementById('designer-side');
+    const coderSide = document.getElementById('coder-side');
+    const designerText = document.getElementById('designer-text');
+    const coderText = document.getElementById('coder-text');
+    const codeOverlay = document.getElementById('code-overlay');
+    const designOverlay = document.getElementById('design-overlay');
+    const designerSectionDesktop = document.getElementById('designer-section-desktop');
+    const coderSectionDesktop = document.getElementById('coder-section-desktop');
+    
+    // Verificar que todos los elementos existan antes de continuar
+    if (container && designerSide && coderSide && designerText && coderText && 
+        codeOverlay && designOverlay && designerSectionDesktop && coderSectionDesktop) {
+      
+      // Set initial state
+      updateSplitPosition(0.5);
+      
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const windowWidth = window.innerWidth;
+        
+        // Calculate percentage from left to right (0 at left edge, 1 at right edge)
+        const percentageFromLeft = Math.min(Math.max(x / windowWidth, 0), 1);
+        
+        // Update all elements based on mouse position
+        updateSplitPosition(percentageFromLeft);
+      });
+      
+      // Function to update all elements based on split position
+      function updateSplitPosition(percentageFromLeft) {
+        // Apply the split effect - adjust width of each side
+        designerSide.style.width = `${percentageFromLeft * 100}%`;
+        coderSide.style.width = `${(1 - percentageFromLeft) * 100}%`;
+        
+        // Apply the transition effect to text overlays
+        designerText.style.opacity = Math.max(0, 1 - percentageFromLeft * 2).toString(); // Disappear faster
+        coderText.style.opacity = Math.max(0, percentageFromLeft * 2 - 1).toString(); // Appear faster
+        
+        // Move text overlays based on mouse position
+        designerText.style.transform = `translate(${-percentageFromLeft * 30}px, -50%)`; // Move left as mouse moves right
+        coderText.style.transform = `translate(${(1 - percentageFromLeft) * 30}px, -50%)`; // Move right as mouse moves left
+        
+        // Apply the transition effect to main text sections - make them disappear completely
+        if (percentageFromLeft > 0.5) {
+          if (designerSectionDesktop && coderSectionDesktop) {
+            designerSectionDesktop.style.opacity = Math.max(0, 1 - (percentageFromLeft - 0.5) * 2).toString();
+            coderSectionDesktop.style.opacity = '1';
+          }
+        } else {
+          if (designerSectionDesktop && coderSectionDesktop) {
+            designerSectionDesktop.style.opacity = '1';
+            coderSectionDesktop.style.opacity = Math.max(0, percentageFromLeft * 2).toString();
+          }
+        }
+        
+        // Design elements are more visible on the left side and move
+        designOverlay.style.opacity = Math.max(0, 0.8 - percentageFromLeft * 1.6).toString();
+        designOverlay.style.transform = `translate(${-percentageFromLeft * 40}px, 50%)`;
+        
+        // Code overlay is more visible on the right side and move
+        codeOverlay.style.opacity = Math.max(0, percentageFromLeft * 1.6 - 0.8).toString();
+        codeOverlay.style.transform = `translate(${(1 - percentageFromLeft) * 40}px, 50%)`;
+      }
+    }
+  });
+</script>
